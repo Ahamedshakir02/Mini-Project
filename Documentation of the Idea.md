@@ -52,74 +52,74 @@ In disaster scenarios such as landslides or floods, locating vehicles becomes a 
 #### **5. System Workflow**
 
 1. **Normal Operation:**
-   - GPS collects real-time location data and sends it to the ESP32.
-                     - ESP32 transmits this data via GSM to a server or mobile device.
-                        - Data is simultaneously logged onto a MicroSD card.
+    - GPS collects real-time location data and sends it to the ESP32.
+    - ESP32 transmits this data via GSM to a server or mobile device.
+    - Data is simultaneously logged onto a MicroSD card.
 
-                        2. **Emergency Alerts:**
-                           - LEDs and buzzer activate if GPS fails or communication is lost.
+2. **Emergency Alerts:**
+    - LEDs and buzzer activate if GPS fails or communication is lost.
 
-                           3. **Fallback Tracking:**
-                              - If GPS is unavailable, the IMU sensor tracks motion and approximates location.
-                                 - The last known GPS location is logged and used for recovery.
+3. **Fallback Tracking:**
+    - If GPS is unavailable, the IMU sensor tracks motion and approximates location.
+    - The last known GPS location is logged and used for recovery.
 
-                                 ---
+---
 
-                                 #### **6. Assembly Guide**
+#### **6. Assembly Guide**
 
-                                 1. **Hardware Setup:**
-                                    - Connect the NEO-6M GPS module to the ESP32 using UART (TX/RX pins).
-                                       - Connect the SIM800L GSM module to another UART port for communication.
-                                          - Attach the MicroSD card module via SPI for data logging.
-                                             - Connect LEDs and buzzer to GPIO pins for emergency alerts.
-                                                - Power everything using the 18650 Li-ion battery with a TP4056 charging module.
+1. **Hardware Setup:**
+    - Connect the NEO-6M GPS module to the ESP32 using UART (TX/RX pins).
+    - Connect the SIM800L GSM module to another UART port for communication.
+    - Attach the MicroSD card module via SPI for data logging.
+    - Connect LEDs and buzzer to GPIO pins for emergency alerts.
+    - Power everything using the 18650 Li-ion battery with a TP4056 charging module.
 
-                                                2. **Software Configuration:**
-                                                   - Use Arduino IDE to write the firmware.
-                                                      - Libraries:
-                                                           - `TinyGPS++` for GPS data parsing.
-                                                                - `TinyGSM` for GSM communication.
-                                                                     - `Adafruit MPU6050` for motion tracking.
-                                                                        - Functions:
-                                                                             - Read and log GPS data.
-                                                                                  - Transmit location via GSM.
-                                                                                       - Activate alerts during failures.
-                                                                                            - Log all data to the MicroSD card.
+2. **Software Configuration:**
+    - Use Arduino IDE to write the firmware.
+    - Libraries:
+    - `TinyGPS++` for GPS data parsing.
+    - `TinyGSM` for GSM communication.
+    - `Adafruit MPU6050` for motion tracking.
+    - Functions:
+    - Read and log GPS data.
+    - Transmit location via GSM.
+    - Activate alerts during failures.
+    - Log all data to the MicroSD card.
 
-                                                                                            ---
+---
 
-                                                                                            #### **7. Testing the Prototype**
+#### **7. Testing the Prototype**
 
-                                                                                            1. **GPS Accuracy:**
-                                                                                               - Test location tracking in open and obstructed environments.
-                                                                                               2. **Communication Reliability:**
-                                                                                                  - Verify data transmission via GSM to a mobile device or server.
-                                                                                                  3. **Emergency Alerts:**
-                                                                                                     - Simulate failures to test LED and buzzer activation.
-                                                                                                     4. **Data Logging:**
-                                                                                                        - Check the integrity of logged data on the MicroSD card.
-                                                                                                        5. **Power Efficiency:**
-                                                                                                           - Measure battery life during continuous operation.
+1. **GPS Accuracy:**
+    - Test location tracking in open and obstructed environments.
+2. **Communication Reliability:**
+    - Verify data transmission via GSM to a mobile device or server.
+3. **Emergency Alerts:**
+    - Simulate failures to test LED and buzzer activation.
+4. **Data Logging:**
+    - Check the integrity of logged data on the MicroSD card.
+5. **Power Efficiency:**
+    - Measure battery life during continuous operation.
 
-                                                                                                           ---
+---
 
-                                                                                                           #### **8. Limitations of the Prototype**
+#### **8. Limitations of the Prototype**
 
-                                                                                                           1. Rugged casing (e.g., IP68 enclosure) is not included in the prototype stage.
-                                                                                                           2. Solar panel integration is excluded for cost and simplicity.
-                                                                                                           3. LoRa communication is not implemented to focus on GSM.
-                                                                                                           4. Advanced environmental sensors (e.g., dust, humidity) are omitted for simplicity.
+1. Rugged casing (e.g., IP68 enclosure) is not included in the prototype stage.
+2. Solar panel integration is excluded for cost and simplicity.
+3. LoRa communication is not implemented to focus on GSM.
+4. Advanced environmental sensors (e.g., dust, humidity) are omitted for simplicity.
 
-                                                                                                           ---
+---
 
-                                                                                                           #### **9. Future Enhancements**
+#### **9. Future Enhancements**
 
-                                                                                                           1. Integrate LoRa communication for long-range capabilities.
-                                                                                                           2. Add an IP68-rated enclosure for ruggedness.
-                                                                                                           3. Include environmental sensors for comprehensive monitoring.
-                                                                                                           4. Explore solar power integration for extended field operations.
+1. Integrate LoRa communication for long-range capabilities.
+2. Add an IP68-rated enclosure for ruggedness.
+3. Include environmental sensors for comprehensive monitoring.
+4. Explore solar power integration for extended field operations.
 
-                                                                                                           ---
+---
 
-                                                                                                           This prototype serves as a proof-of-concept for the TrailSafe system, showcasing its core functionalities and scalability for real-world applications. Let me know if you'd like additional details or diagrams!
+This prototype serves as a proof-of-concept for the TrailSafe system, showcasing its core functionalities and scalability for real-world applications. Let me know if you'd like additional details or diagrams!
 
